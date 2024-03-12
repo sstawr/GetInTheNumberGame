@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var targetValue = Int.random(in: 0...100)
     @State private var currentValue = 50.0
     @State private var scoreValue = 100
+    @State private var isPresented = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -35,13 +36,17 @@ struct ContentView: View {
             }
             
             Button("Проверь меня!", action: checkNumber)
+                .alert("Your score", isPresented: $isPresented, actions: {}) {
+                    Text("\(scoreValue)")
+                }
+            
             Button("Начать заново", action: restart)
         }
         .padding()
     }
     
     private func checkNumber() {
-        print(currentValue)
+        isPresented.toggle()
     }
     
     private func restart() {
