@@ -9,13 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 20) {
+           Text("Подвиньте слайдер, как можно ближе к: ")
+            
+            HStack {
+                Text("0")
+                Text("100")
+            }
+            
+            Button("Проверь меня!", action: checkNumber)
+            Button("Начать заново", action: restart)
         }
         .padding()
+    }
+    
+    private func checkNumber() {
+        
+    }
+    
+    private func restart() {
+        
     }
 }
 
